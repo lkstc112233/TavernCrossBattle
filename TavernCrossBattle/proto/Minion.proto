@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package battle;
+
+message Minion {
+	// The attack of a minion.
+	int32 power = 1;
+
+	// The defence of a minion.
+	int32 life_total = 2;
+
+	// The current life of a minion.
+	int32 life_current = 3;
+}

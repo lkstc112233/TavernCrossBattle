@@ -95,6 +95,14 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuild>
+      <Command>protoc.exe -I .\proto %(Filename).proto --cpp_out=$(ProjectDir)protocpp</Command>
+    </CustomBuild>
+    <CustomBuild>
+      <OutputItemType>ClCompile</OutputItemType>
+      <Message>protoc %(Filename).proto</Message>
+      <Outputs>$(ProjectDir)protocpp\%(Filename).pb.cc</Outputs>
+    </CustomBuild>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -148,6 +156,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TavernCrossBattle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="proto\Minion.proto">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
