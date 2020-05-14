@@ -6,4 +6,5 @@ package battle;
 
 message Player {
 	repeated Minion minions = 1;
+	bool attacks_next = 2;
 }
