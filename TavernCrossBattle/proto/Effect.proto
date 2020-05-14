@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package battle;
+
+// The effect when something happens.
+// I'll come to this later.'
+message Effect {
+	
+}

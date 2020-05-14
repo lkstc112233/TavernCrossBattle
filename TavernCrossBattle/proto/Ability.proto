@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "Effect.proto";
+
+package battle;
+
+message Ability {
+	// The trigger type.
+	enum Trigger {
+		NEVER_TRIGGERS = 0;
+		// Lasting effect
+		ALWAYS_TRIGGERS = 1;
+	}
+
+	// The trigger of the ability.
+	Trigger trigger = 1;
+
+	// The thing that happens when triggered.
+	Effect effect = 2;
+}

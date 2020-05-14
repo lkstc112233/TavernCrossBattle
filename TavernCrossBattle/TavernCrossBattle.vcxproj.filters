@@ -26,5 +26,17 @@
     <CustomBuild Include="proto\Minion.proto">
       <Filter>源文件\proto</Filter>
     </CustomBuild>
+    <CustomBuild Include="proto\Ability.proto">
+      <Filter>源文件\proto</Filter>
+    </CustomBuild>
+    <CustomBuild Include="proto\Board.proto">
+      <Filter>源文件\proto</Filter>
+    </CustomBuild>
+    <CustomBuild Include="proto\Effect.proto">
+      <Filter>源文件\proto</Filter>
+    </CustomBuild>
+    <CustomBuild Include="proto\Player.proto">
+      <Filter>源文件\proto</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

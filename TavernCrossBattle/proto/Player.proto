@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "Minion.proto";
+
+package battle;
+
+message Player {
+	repeated Minion minions = 1;
+}

@@ -1,8 +1,10 @@
 ﻿#include <iostream>
 
 #include "protocpp/Minion.pb.h"
+#include "protocpp/Board.pb.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    battle::Board board; 
+    std::cout << board.DebugString() << std::endl;
 }

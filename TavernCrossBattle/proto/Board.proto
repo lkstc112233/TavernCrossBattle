@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "Player.proto";
+
+package battle;
+
+message Board {
+	Player player1 = 1;
+	Player player2 = 2;
+}
