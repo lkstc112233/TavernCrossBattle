@@ -21,6 +21,9 @@
     <ClCompile Include="TavernCrossBattle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="proto\Minion.proto">
@@ -38,5 +41,10 @@
     <CustomBuild Include="proto\Player.proto">
       <Filter>源文件\proto</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
