@@ -11,4 +11,8 @@ namespace battle {
 	void Game::loop() {
 
 	}
+	std::string Game::getBoardState()
+	{
+		return board.DebugString();
+	}
 }
