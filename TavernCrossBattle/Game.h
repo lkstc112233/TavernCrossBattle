@@ -5,10 +5,10 @@
 namespace battle {
 	class Game {
 	public:
-		void Initialize(Player&& player1, Player&& player2);
+		void Initialize(const Player& player1, const Player& player2);
 		void LoopStep();
 		void Attack(Minion *minion1, Minion *minion2);
-		std::string GetBoardState();
+		const Board& GetBoardState();
 	private:
 		Board board_;
 	};
