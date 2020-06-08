@@ -12,6 +12,6 @@ namespace battle {
 		Board board_;
 
 		// minion1 attacks minion2.
-		void Attack(Minion *minion1, Minion *minion2);
+		void Attack(Minion* attacker, Minion* defender);
 	};
 }

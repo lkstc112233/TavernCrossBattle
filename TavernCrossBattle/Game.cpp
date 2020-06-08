@@ -30,9 +30,9 @@ namespace battle {
 	void Game::LoopStep() {
 
 	}
-	void Game::Attack(Minion* minion1, Minion* minion2) {
-		minion1->set_life_current(minion1->life_current() - minion2->power());
-		minion2->set_life_current(minion2->life_current() - minion1->power());
+	void Game::Attack(Minion* attacker, Minion* defender) {
+		attacker->set_life_current(attacker->life_current() - defender->power());
+		defender->set_life_current(defender->life_current() - attacker->power());
 	}
 	const Board& Game::GetBoardState() {
 		return board_;
