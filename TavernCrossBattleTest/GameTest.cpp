@@ -4,6 +4,10 @@
 
 #include "../TavernCrossBattle/Game.h"
 
+#include "protocol-buffer-matchers.h"
+
+using nucleus::EqualsProto;
+
 class GameTest : public ::testing::Test {
 protected:
 	battle::Game game_;
@@ -32,10 +36,9 @@ TEST_F(GameTest, InitializesCorrectly) {
 			attacks_next: true
 		}
 	)", &player2);
-	
-	battle::Board board_expected;
 
-	google::protobuf::TextFormat::ParseFromString(R"(
+	game_.Initialize(player1, player2);
+	EXPECT_THAT(game_.GetBoardState(), EqualsProto(R"(
 	player1 {
 		minions {
 			id: 1
@@ -54,9 +57,6 @@ TEST_F(GameTest, InitializesCorrectly) {
 			attacks_next: true
 		}
 	}
-	)", &board_expected);
-
-	game_.Initialize(player1, player2);
-	EXPECT_EQ(game_.GetBoardState().DebugString(), board_expected.DebugString());
+	)"));
 }
 
