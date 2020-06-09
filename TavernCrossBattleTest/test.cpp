@@ -16,4 +16,5 @@ TEST(GMockIntegrationTest, ProtoTest) {
     battle::Minion minion;
 
     EXPECT_THAT(minion, EqualsProto(minion));
+    EXPECT_THAT(minion, EqualsProto(R"()"));
 }
