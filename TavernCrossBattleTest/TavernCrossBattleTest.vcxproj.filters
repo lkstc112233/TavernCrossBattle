@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\packages\gmock.1.10.0\lib\native\src\gtest\src\gtest_main.cc" />
+    <ClCompile Include="Ability_proto_dup.cpp" />
+    <ClCompile Include="Board_proto_dup.cpp" />
+    <ClCompile Include="Effect_proto_dup.cpp" />
+    <ClCompile Include="Game_dup.cpp" />
+    <ClCompile Include="Minion_proto_dup.cpp" />
+    <ClCompile Include="protocol-buffer-matchers.cc" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc" />
+    <ClCompile Include="re2\bitstate.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\compile.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\dfa.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\filtered_re2.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\mimics_pcre.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\nfa.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\onepass.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\parse.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\perl_groups.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\prefilter.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\prefilter_tree.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\prog.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\re2.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\regexp.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\set.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\simplify.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\stringpiece.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\tostring.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\unicode_casefold.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\unicode_groups.cc">
+      <Filter>re2</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTest.cpp" />
+    <ClCompile Include="Player_proto_dup.cpp" />
+    <ClCompile Include="util\benchmark.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\fuzz.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\pcre.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\rune.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\strutil.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="util\test.cc">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\backtrack.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\charclass_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\compile_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\dfa_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\exhaustive_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\exhaustive1_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\exhaustive2_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\exhaustive3_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\exhaustive_tester.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\filtered_re2_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\mimics_pcre_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\possible_match_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\tester.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\string_generator_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\string_generator.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\simplify_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\search_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\required_prefix_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\set_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\regexp_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\random_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\re2_arg_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\re2_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\regexp_benchmark.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\regexp_generator.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\null_walker.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\parse_test.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\testing\dump.cc">
+      <Filter>re2\testing</Filter>
+    </ClCompile>
+    <ClCompile Include="re2\fuzzing\re2_fuzzer.cc">
+      <Filter>re2\fuzzing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="protocol-buffer-matchers.h" />
+    <ClInclude Include="re2\bitmap256.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\filtered_re2.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\pod_array.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\prefilter.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\prefilter_tree.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\prog.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\re2.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\regexp.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\set.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\sparse_array.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\sparse_set.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\stringpiece.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\unicode_casefold.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\unicode_groups.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\walker-inl.h">
+      <Filter>re2</Filter>
+    </ClInclude>
+    <ClInclude Include="util\benchmark.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\flags.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\logging.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\malloc_counter.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\mix.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\mutex.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\pcre.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\strutil.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\test.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utf.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\util.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\testing\exhaustive_tester.h">
+      <Filter>re2\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\testing\tester.h">
+      <Filter>re2\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\testing\string_generator.h">
+      <Filter>re2\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\testing\regexp_generator.h">
+      <Filter>re2\testing</Filter>
+    </ClInclude>
+    <ClInclude Include="re2\fuzzing\compiler-rt\include\fuzzer\FuzzedDataProvider.h">
+      <Filter>re2\fuzzing</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="re2">
+      <UniqueIdentifier>{88bf03fd-2a44-4b6d-98e7-9d962b2b8ee9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{44714eef-c31f-401b-b8df-01f7dd2e1195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="re2\testing">
+      <UniqueIdentifier>{2f346f28-e641-441a-aa29-0f481b59406a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="re2\fuzzing">
+      <UniqueIdentifier>{f3328c92-7c3d-4560-9c5f-f7dfec6712c4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
