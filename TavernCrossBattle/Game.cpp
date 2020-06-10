@@ -15,10 +15,8 @@ namespace battle {
 	void Game::Initialize(const Player& player1, const Player& player2) {
 		board_.clear_player1();
 		*board_.mutable_player1() = player1;
-		DetermineNextAttacker(board_.mutable_player1());
 		board_.clear_player2();
 		*board_.mutable_player2() = player2;
-		DetermineNextAttacker(board_.mutable_player2());
 		if (RandomBool()) {
 			board_.mutable_player1()->set_attacks_next(true);
 			board_.mutable_player2()->set_attacks_next(false);
@@ -31,6 +29,7 @@ namespace battle {
 	void Game::LoopStep() {
 		Player* attackingPlayer = board_.player1().attacks_next() ? board_.mutable_player1() : board_.mutable_player2();
 		Player* defendingPlayer = board_.player1().attacks_next() ? board_.mutable_player2() : board_.mutable_player1();
+		DetermineNextAttacker(attackingPlayer);
 		Minion* attacker = DetermineAttacker(attackingPlayer);
 		Minion* defender = DetermineDefender(defendingPlayer);
 		Attack(attacker, defender);

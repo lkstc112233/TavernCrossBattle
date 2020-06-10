@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\packages\gmock.1.10.0\lib\native\src\gtest\src\gtest_main.cc" />
     <ClCompile Include="protocol-buffer-matchers.cc" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc" />
     <ClCompile Include="re2\bitstate.cc">
       <Filter>re2</Filter>
     </ClCompile>
@@ -172,10 +169,26 @@
     <ClCompile Include="re2\fuzzing\re2_fuzzer.cc">
       <Filter>re2\fuzzing</Filter>
     </ClCompile>
-    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" >
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp">
       <Filter>Dependencies</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="..\TavernCrossBattle\**\*.cc">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="PlayerUtilitiesTest.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\packages\gmock.1.10.0\lib\native\src\gtest\src\gtest_main.cc">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc">
       <Filter>Dependencies</Filter>
     </ClCompile>
   </ItemGroup>

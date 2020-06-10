@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package battle;
 
-// Next Id: 6
+// Next Id: 7
 message Minion {
 	// An unique id of the minion, used for referencing the minion.
 	int32 id = 5;
@@ -16,7 +16,9 @@ message Minion {
 	// The current life of a minion.
 	int32 life_current = 3;
 
-	// Whether this minion attacks next. 
-	// Only one minion holds the attacking token at a time.
-	bool attacks_next = 4;
+	// Attacking token used to determine if the minion can attack
+	// the next round.
+	bool can_attack = 6;
+
+	reserved 4;
 }

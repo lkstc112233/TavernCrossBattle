@@ -123,6 +123,7 @@
     <ClCompile Include="..\TavernCrossBattle\**\*.cpp" Exclude="..\TavernCrossBattle\TavernCrossBattle.cpp" />
     <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
     <ClCompile Include="GameTest.cpp" />
+    <ClCompile Include="PlayerUtilitiesTest.cpp" />
     <ClCompile Include="protocol-buffer-matchers.cc" />
     <ClCompile Include="re2\bitstate.cc" />
     <ClCompile Include="re2\compile.cc" />
