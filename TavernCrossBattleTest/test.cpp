@@ -1,5 +1,3 @@
-#include "pch.h"
-
 #include "../TavernCrossBattle/protocpp/Minion.pb.h"
 #include "protocol-buffer-matchers.h"
 using nucleus::EqualsProto;

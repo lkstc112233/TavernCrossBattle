@@ -1,1 +1,1 @@
-#include "../TavernCrossBattle/protocpp/Minion.pb.cc"
+#include "protocpp/Minion.pb.cc"

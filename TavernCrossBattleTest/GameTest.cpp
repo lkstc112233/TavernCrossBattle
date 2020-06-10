@@ -1,8 +1,7 @@
-#include "pch.h"
+#include "Game.h"
 
+#include "gtest/gtest.h"
 #include <google/protobuf/text_format.h>
-
-#include "../TavernCrossBattle/Game.h"
 
 #include "protocol-buffer-matchers.h"
 

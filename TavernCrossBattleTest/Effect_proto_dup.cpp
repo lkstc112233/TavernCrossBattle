@@ -1,1 +1,1 @@
-#include "../TavernCrossBattle/protocpp/Effect.pb.cc"
+#include "protocpp/Effect.pb.cc"

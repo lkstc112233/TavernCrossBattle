@@ -1,1 +1,1 @@
-#include "../TavernCrossBattle/protocpp/Player.pb.cc"
+#include "protocpp/Player.pb.cc"

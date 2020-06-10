@@ -2,35 +2,15 @@
 
 #include <random>
 
+#include "PlayerUtilities.h"
 #include "RandomUtilities.h"
 
 namespace battle {
 	using ::battle::utilities::RandomInt;
 	using ::battle::utilities::RandomBool;
-
-	namespace {
-		Minion* DetermineAttacker(Player* player) {
-			for (int i = 0; i < player->minions_size(); ++i) {
-				if (player->minions(i).attacks_next()) {
-					return player->mutable_minions(i);
-				}
-			}
-			return nullptr;
-		}
-		void DetermineNextAttacker(Player* player) {
-			// TODO: Implement this..
-			if (player->minions_size()) {
-				player->mutable_minions(0)->set_attacks_next(true);
-				for (int i = 1; i < player->minions_size(); ++i) {
-					player->mutable_minions(i)->set_attacks_next(false);
-				}
-			}
-		}
-		Minion* DetermineDefender(Player* player) {
-			int minions = player->minions_size();
-			return player->mutable_minions(RandomInt(0, minions - 1));
-		}
-	}
+	using ::battle::utilities::DetermineAttacker;
+	using ::battle::utilities::DetermineNextAttacker;
+	using ::battle::utilities::DetermineDefender;
 
 	void Game::Initialize(const Player& player1, const Player& player2) {
 		board_.clear_player1();

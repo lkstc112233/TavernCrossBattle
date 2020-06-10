@@ -1,1 +1,1 @@
-#include "../TavernCrossBattle/protocpp/Ability.pb.cc"
+#include "protocpp/Ability.pb.cc"

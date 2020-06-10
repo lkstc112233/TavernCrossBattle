@@ -9,7 +9,6 @@
     <ClCompile Include="Minion_proto_dup.cpp" />
     <ClCompile Include="protocol-buffer-matchers.cc" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc" />
     <ClCompile Include="re2\bitstate.cc">
@@ -180,9 +179,9 @@
       <Filter>re2\fuzzing</Filter>
     </ClCompile>
     <ClCompile Include="RandomUtilities_dup.cpp" />
+    <ClCompile Include="PlayerUtilities_dup.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
     <ClInclude Include="protocol-buffer-matchers.h" />
     <ClInclude Include="re2\bitmap256.h">
       <Filter>re2</Filter>
