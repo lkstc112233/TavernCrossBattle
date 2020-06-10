@@ -10,7 +10,16 @@ namespace battle {
 			bool CanAttack(const Minion& minion) {
 				return minion.power() > 0;
 			}
+
+			// Removes attack token from last attacked minion.
+			void RemoveLastAttacker(Player* player) {
+				Minion* lastAttacker = DetermineAttacker(player);
+				if (lastAttacker) {
+					lastAttacker->set_can_attack(false);
+				}
+			}
 		}
+
 		Minion* DetermineAttacker(Player* player) {
 			for (int i = 0; i < player->minions_size(); ++i) {
 				if (player->minions(i).can_attack()) {
@@ -18,13 +27,6 @@ namespace battle {
 				}
 			}
 			return nullptr;
-		}
-
-		void RemoveLastAttacker(Player* player) {
-			Minion* lastAttacker = DetermineAttacker(player);
-			if (lastAttacker) {
-				lastAttacker->set_can_attack(false);
-			}
 		}
 
 		void DetermineNextAttacker(Player* player) {
