@@ -21,13 +21,13 @@
     <ClCompile Include="TavernCrossBattle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerUtilities.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="RandomUtilities.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

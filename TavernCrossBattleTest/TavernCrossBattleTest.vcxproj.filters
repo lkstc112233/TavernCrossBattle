@@ -2,11 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\packages\gmock.1.10.0\lib\native\src\gtest\src\gtest_main.cc" />
-    <ClCompile Include="Ability_proto_dup.cpp" />
-    <ClCompile Include="Board_proto_dup.cpp" />
-    <ClCompile Include="Effect_proto_dup.cpp" />
-    <ClCompile Include="Game_dup.cpp" />
-    <ClCompile Include="Minion_proto_dup.cpp" />
     <ClCompile Include="protocol-buffer-matchers.cc" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc" />
@@ -72,7 +67,6 @@
       <Filter>re2</Filter>
     </ClCompile>
     <ClCompile Include="GameTest.cpp" />
-    <ClCompile Include="Player_proto_dup.cpp" />
     <ClCompile Include="util\benchmark.cc">
       <Filter>util</Filter>
     </ClCompile>
@@ -178,8 +172,12 @@
     <ClCompile Include="re2\fuzzing\re2_fuzzer.cc">
       <Filter>re2\fuzzing</Filter>
     </ClCompile>
-    <ClCompile Include="RandomUtilities_dup.cpp" />
-    <ClCompile Include="PlayerUtilities_dup.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" >
+      <Filter>Dependencies</Filter>
+	</ClCompile>
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="protocol-buffer-matchers.h" />
@@ -290,6 +288,9 @@
     </Filter>
     <Filter Include="re2\fuzzing">
       <UniqueIdentifier>{f3328c92-7c3d-4560-9c5f-f7dfec6712c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{54e43a81-fa37-44d8-bfb6-8e82be31e667}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
