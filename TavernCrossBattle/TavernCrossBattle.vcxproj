@@ -156,6 +156,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="PlayerUtilities.cpp" />
+    <ClCompile Include="RandomUtilities.cpp" />
     <ClCompile Include="TavernCrossBattle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +186,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="PlayerUtilities.h" />
+    <ClInclude Include="RandomUtilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

@@ -2,18 +2,13 @@
 
 #include <random>
 
+#include "RandomUtilities.h"
+
 namespace battle {
+	using ::battle::utilities::RandomInt;
+	using ::battle::utilities::RandomBool;
+
 	namespace {
-		std::random_device rd;
-		std::default_random_engine random_generator(rd());
-		std::uniform_int_distribution<> bool_distribution(0, 1);
-		int RandomInt(int min, int max) {
-			std::uniform_int_distribution<int> distribution(min, max);
-			return distribution(random_generator);
-		}
-		bool RandomBool() {
-			return bool_distribution(random_generator);
-		}
 		Minion* DetermineAttacker(Player* player) {
 			for (int i = 0; i < player->minions_size(); ++i) {
 				if (player->minions(i).attacks_next()) {
@@ -34,11 +29,6 @@ namespace battle {
 		Minion* DetermineDefender(Player* player) {
 			int minions = player->minions_size();
 			return player->mutable_minions(RandomInt(0, minions - 1));
-		}
-	}
-	namespace internal_testing {
-		void SetGeneratorSeed(int seed) {
-			random_generator.seed(seed);
 		}
 	}
 

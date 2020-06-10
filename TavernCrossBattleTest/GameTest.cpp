@@ -9,8 +9,10 @@
 using nucleus::EqualsProto;
 
 namespace battle {
-	namespace internal_testing {
-		void SetGeneratorSeed(int seed);
+	namespace utilities {
+		namespace internal_testing {
+			void SetGeneratorSeed(int seed);
+		}
 	}
 }
 
@@ -19,7 +21,7 @@ protected:
 	battle::Game game_;
 
 	void SetUp() override {
-		battle::internal_testing::SetGeneratorSeed(0);
+		battle::utilities::internal_testing::SetGeneratorSeed(0);
 	}
 };
 

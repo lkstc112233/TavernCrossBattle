@@ -179,6 +179,7 @@
     <ClCompile Include="re2\fuzzing\re2_fuzzer.cc">
       <Filter>re2\fuzzing</Filter>
     </ClCompile>
+    <ClCompile Include="RandomUtilities_dup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
