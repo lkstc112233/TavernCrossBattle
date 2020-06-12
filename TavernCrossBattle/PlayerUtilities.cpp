@@ -1,5 +1,6 @@
 #include "PlayerUtilities.h"
 
+#include "MinionUtilities.h"
 #include "RandomUtilities.h"
 #include "protocpp/Player.pb.h"
 #include "protocpp/Minion.pb.h"
@@ -7,10 +8,6 @@
 namespace battle {
 	namespace utilities {
 		namespace {
-			bool CanAttack(const Minion& minion) {
-				return minion.power() > 0;
-			}
-
 			// Removes attack token from last attacked minion.
 			void RemoveLastAttacker(Player* player) {
 				Minion* lastAttacker = DetermineAttacker(player);

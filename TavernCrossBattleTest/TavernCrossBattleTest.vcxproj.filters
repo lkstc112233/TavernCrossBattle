@@ -191,6 +191,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc">
       <Filter>Dependencies</Filter>
     </ClCompile>
+    <ClCompile Include="MinionUtilitiesTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="protocol-buffer-matchers.h" />
