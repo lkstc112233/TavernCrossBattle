@@ -78,4 +78,168 @@ namespace battle {
 				can_attack: true
 			)"));
 	}
+
+	TEST(DetermineNextAttacker, ModifiesPlayerToShowAttacker) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		utilities::DetermineNextAttacker(&player);
+
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)"));
+		utilities::DetermineNextAttacker(&player);
+
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)"));
+	}
+
+	TEST(DetermineNextAttacker, SkipsMinionsCannotAttack) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 0
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: false
+			}
+		)", &player);
+
+		utilities::DetermineNextAttacker(&player);
+
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 2
+				power: 0
+				life_total: 3
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)"));
+
+		utilities::DetermineNextAttacker(&player);
+
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 0
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)"));
+
+		utilities::DetermineNextAttacker(&player);
+
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 2
+				power: 0
+				life_total: 3
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)"));
+	}
 }
