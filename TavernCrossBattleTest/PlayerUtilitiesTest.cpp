@@ -242,4 +242,41 @@ namespace battle {
 			}
 		)"));
 	}
+	TEST(DetermineDefender, ReturnsDefender) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		Minion* minion = utilities::DetermineAttacker(&player);
+
+		ASSERT_NE(minion, nullptr);
+		EXPECT_THAT(*minion, AnyOf(EqualsProto(R"(
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			)"), EqualsProto(R"(
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			)")));
+	}
 }
