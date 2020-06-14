@@ -7,5 +7,9 @@ namespace battle {
 		bool CanAttack(const Minion& minion) {
 			return minion.power() > 0;
 		}
+
+		bool IsAlive(const Minion& minion) {
+			return minion.life_current() > 0;
+		}
 	}
 }

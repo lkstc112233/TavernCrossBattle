@@ -33,5 +33,30 @@ namespace battle {
 
 			EXPECT_FALSE(CanAttack(minion));
 		}
+
+		TEST(IsAlive, ReturnsTrueForLivingMinion) {
+			Minion minion;
+
+			google::protobuf::TextFormat::ParseFromString(R"(
+					id: 1
+					power: 3
+					life_total: 3
+					life_current: 3
+				)", &minion);
+
+			EXPECT_TRUE(IsAlive(minion));
+		}
+		TEST(IsAlive, ReturnsFalseForDeadMinion) {
+			Minion minion;
+
+			google::protobuf::TextFormat::ParseFromString(R"(
+					id: 1
+					power: 0
+					life_total: 3
+					life_current: 0
+				)", &minion);
+
+			EXPECT_FALSE(IsAlive(minion));
+		}
 	}
 }
