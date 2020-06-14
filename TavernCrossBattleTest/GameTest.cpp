@@ -47,6 +47,7 @@ namespace battle {
 
 		game_.Initialize(player1, player2);
 		EXPECT_THAT(game_.GetBoardState(), EqualsProto(R"(
+	game_status: ONGOING
 	player1 {
 		minions {
 			id: 1
@@ -94,6 +95,7 @@ namespace battle {
 		game_.Initialize(player1, player2);
 		game_.LoopStep();
 		EXPECT_THAT(game_.GetBoardState(), EqualsProto(R"(
+	game_status: ONGOING
 	player1 {
 		minions {
 			id: 1
