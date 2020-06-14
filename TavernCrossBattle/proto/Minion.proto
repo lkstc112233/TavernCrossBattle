@@ -2,8 +2,18 @@ syntax = "proto3";
 
 package battle;
 
-// Next Id: 7
+// Next Id: 8
 message Minion {
+	enum Type {
+		GENERAL = 0;
+		ALL = 1;
+		BEAST = 2;
+		DEMON = 3;
+		DRAGON = 4;
+		MECH = 5;
+		MURLOC = 6;
+		PIRATE = 7;
+	}
 	// An unique id of the minion, used for referencing the minion.
 	int32 id = 5;
 
@@ -19,6 +29,9 @@ message Minion {
 	// Attacking token used to determine if the minion can attack
 	// the next round.
 	bool can_attack = 6;
+
+	// The type of the minion.
+	Type type = 7;
 
 	reserved 4;
 }
