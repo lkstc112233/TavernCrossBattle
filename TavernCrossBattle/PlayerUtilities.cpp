@@ -64,5 +64,13 @@ namespace battle {
 					return !IsAlive(minion) && !minion.can_attack();
 				}), std::end(*minions));
 		}
+
+		bool StatusUpdate(Player* player) {
+			if (!CountMinions(*player)) {
+				return false;
+			}
+			RemoveDeadMinions(player);
+			return true;
+		}
 	}
 }

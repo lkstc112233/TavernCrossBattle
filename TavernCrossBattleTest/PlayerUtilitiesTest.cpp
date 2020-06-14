@@ -472,4 +472,172 @@ namespace battle {
 				can_attack: true
 			})"));
 	}
+
+	TEST(StatusUpdate, DoesNotRemoveAliveMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::StatusUpdate(&player), true);
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)"));
+	}
+
+	TEST(StatusUpdate, ReturnsFalseForEmptyMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"()", &player);
+
+		ASSERT_EQ(utilities::StatusUpdate(&player), false);
+		EXPECT_THAT(player, EqualsProto(R"()"));
+	}
+
+	TEST(StatusUpdate, ReturnsFalseForAllDeadMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 0
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+			})", &player);
+
+		ASSERT_EQ(utilities::StatusUpdate(&player), false);
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 0
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+			})"));
+	}
+
+	TEST(StatusUpdate, RemovesDeadMinionWithoutAttackingToken) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 0
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::StatusUpdate(&player), true);
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			})"));
+	}
+
+	TEST(StatusUpdate, RemovesAllDeadMinionWithoutAttackingToken) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 0
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: false
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::StatusUpdate(&player), true);
+		EXPECT_THAT(player, EqualsProto(R"(
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			})"));
+	}
 }

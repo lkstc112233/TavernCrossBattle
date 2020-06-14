@@ -15,5 +15,8 @@ namespace battle {
 		// Removes all dead minions from the minions list
 		// except the ones holding the attack token.
 		void RemoveDeadMinions(Player* player);
+		// Checks status, remove dead minions, etc.
+		// Returns false if the player has died.
+		bool StatusUpdate(Player* player);
 	}
 }
