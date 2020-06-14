@@ -12,5 +12,8 @@ namespace battle {
 		Minion* DetermineDefender(Player* player);
 		// Counts Alive Minions.
 		int CountMinions(const Player& player);
+		// Removes all dead minions from the minions list
+		// except the ones holding the attack token.
+		void RemoveDeadMinions(Player* player);
 	}
 }

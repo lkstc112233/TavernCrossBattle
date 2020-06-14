@@ -59,5 +59,13 @@ namespace battle {
 					return minion.life_current() > 0;
 				});
 		}
+
+		void RemoveDeadMinions(Player* player) {
+			auto* minions = player->mutable_minions();
+			minions->erase(std::remove_if(std::begin(*minions), std::end(*minions),
+				[](const auto& minion) -> bool {
+					return minion.life_current() <= 0 && !minion.can_attack();
+				}), std::end(*minions));
+		}
 	}
 }
