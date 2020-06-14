@@ -279,4 +279,64 @@ namespace battle {
 				can_attack: true
 			)")));
 	}
+
+	TEST(CountMinions, ReturnsCountOfAliveMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::CountMinions(player), 2);
+	}
+
+	TEST(CountMinions, ReturnsZeroForEmptyMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"()", &player);
+
+		ASSERT_EQ(utilities::CountMinions(player), 0);
+	}
+	TEST(CountMinions, NotCountingDeadMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 0
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::CountMinions(player), 1);
+	}
 }

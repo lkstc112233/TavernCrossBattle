@@ -1,5 +1,7 @@
 #include "PlayerUtilities.h"
 
+#include <algorithm>
+
 #include "MinionUtilities.h"
 #include "RandomUtilities.h"
 #include "protocpp/Player.pb.h"
@@ -48,6 +50,14 @@ namespace battle {
 		Minion* DetermineDefender(Player* player) {
 			int minions = player->minions_size();
 			return player->mutable_minions(RandomInt(0, minions - 1));
+		}
+
+		int CountMinions(const Player& player) {
+			auto minions = player.minions();
+			return std::count_if(std::begin(minions), std::end(minions), 
+				[](const auto& minion) -> bool {
+					return minion.life_current() > 0;
+				});
 		}
 	}
 }

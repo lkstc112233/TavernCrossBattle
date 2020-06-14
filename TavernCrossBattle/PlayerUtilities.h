@@ -10,5 +10,7 @@ namespace battle {
 		// Called before each round.
 		void DetermineNextAttacker(Player* player);
 		Minion* DetermineDefender(Player* player);
+		// Counts Alive Minions.
+		int CountMinions(const Player& player);
 	}
 }
