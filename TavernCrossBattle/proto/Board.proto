@@ -5,6 +5,14 @@ import "Player.proto";
 package battle;
 
 message Board {
+	enum GameStatus {
+		UNKNOWN = 0;
+		ONGOING = 1;
+		PLAYER1_WINS = 2;
+		PLAYER2_WINS = 3;
+		DRAW = 4;
+	}
 	Player player1 = 1;
 	Player player2 = 2;
+	GameStatus game_status = 3;
 }

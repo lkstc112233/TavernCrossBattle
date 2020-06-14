@@ -27,6 +27,9 @@ namespace battle {
 	}
 
 	void Game::LoopStep() {
+		if (IsGameOver()) {
+			return;
+		}
 		Player* attackingPlayer = board_.player1().attacks_next() ? board_.mutable_player1() : board_.mutable_player2();
 		Player* defendingPlayer = board_.player1().attacks_next() ? board_.mutable_player2() : board_.mutable_player1();
 		DetermineNextAttacker(attackingPlayer);
@@ -34,6 +37,18 @@ namespace battle {
 		Minion* defender = DetermineDefender(defendingPlayer);
 		Attack(attacker, defender);
 	}
+
+	bool Game::IsGameOver() {
+		switch (board_.game_status()) {
+		case Board::PLAYER1_WINS:
+		case Board::PLAYER2_WINS:
+		case Board::DRAW:
+			return true;
+		default:
+			return false;
+		}
+	}
+
 	void Game::Attack(Minion* attacker, Minion* defender) {
 		attacker->set_life_current(attacker->life_current() - defender->power());
 		defender->set_life_current(defender->life_current() - attacker->power());

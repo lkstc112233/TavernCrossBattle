@@ -11,6 +11,9 @@ namespace battle {
 	private:
 		Board board_;
 
+		// Checks if the game status is over. 
+		bool IsGameOver();
+
 		// minion1 attacks minion2.
 		void Attack(Minion* attacker, Minion* defender);
 	};
