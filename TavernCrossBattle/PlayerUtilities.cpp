@@ -54,17 +54,14 @@ namespace battle {
 
 		int CountMinions(const Player& player) {
 			auto minions = player.minions();
-			return std::count_if(std::begin(minions), std::end(minions), 
-				[](const auto& minion) -> bool {
-					return minion.life_current() > 0;
-				});
+			return std::count_if(std::begin(minions), std::end(minions), &IsAlive);
 		}
 
 		void RemoveDeadMinions(Player* player) {
 			auto* minions = player->mutable_minions();
 			minions->erase(std::remove_if(std::begin(*minions), std::end(*minions),
 				[](const auto& minion) -> bool {
-					return minion.life_current() <= 0 && !minion.can_attack();
+					return !IsAlive(minion) && !minion.can_attack();
 				}), std::end(*minions));
 		}
 	}
