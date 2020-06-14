@@ -13,6 +13,7 @@ namespace battle {
 	using ::battle::utilities::DetermineDefender;
 
 	void Game::Initialize(const Player& player1, const Player& player2) {
+		board_.set_game_status(Board::ONGOING);
 		board_.clear_player1();
 		*board_.mutable_player1() = player1;
 		board_.clear_player2();
