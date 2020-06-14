@@ -54,6 +54,19 @@ namespace battle {
 		attacker->set_life_current(attacker->life_current() - defender->power());
 		defender->set_life_current(defender->life_current() - attacker->power());
 	}
+
+	void Game::StatusUpdate() {
+		bool player1_alive = ::battle::utilities::StatusUpdate(board_.mutable_player1());
+		bool player2_alive = ::battle::utilities::StatusUpdate(board_.mutable_player2());
+		if (!player1_alive && !player2_alive) {
+			board_.set_game_status(Board::DRAW);
+		} else if (!player1_alive) {
+			board_.set_game_status(Board::PLAYER2_WINS);
+		} else if (!player2_alive) {
+			board_.set_game_status(Board::PLAYER1_WINS);
+		}
+	}
+
 	const Board& Game::GetBoardState() {
 		return board_;
 	}

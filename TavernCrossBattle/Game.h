@@ -16,5 +16,8 @@ namespace battle {
 
 		// minion1 attacks minion2.
 		void Attack(Minion* attacker, Minion* defender);
+
+		// Checks status, winning, minion dying, etc.
+		void StatusUpdate();
 	};
 }
