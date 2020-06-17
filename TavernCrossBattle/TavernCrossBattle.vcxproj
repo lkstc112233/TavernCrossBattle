@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="IdGenerator.cpp" />
     <ClCompile Include="MinionUtilities.cpp" />
     <ClCompile Include="PlayerUtilities.cpp" />
     <ClCompile Include="RandomUtilities.cpp" />
@@ -187,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="IdGenerator.h" />
     <ClInclude Include="MinionUtilities.h" />
     <ClInclude Include="PlayerUtilities.h" />
     <ClInclude Include="RandomUtilities.h" />

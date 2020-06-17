@@ -33,6 +33,9 @@
     <ClCompile Include="MinionUtilities.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="IdGenerator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="proto\Minion.proto">
@@ -62,6 +65,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="MinionUtilities.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IdGenerator.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
