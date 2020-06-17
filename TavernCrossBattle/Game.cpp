@@ -12,12 +12,19 @@ namespace battle {
 	using ::battle::utilities::DetermineNextAttacker;
 	using ::battle::utilities::DetermineDefender;
 
+	void Game::InitializePlayer(const Player& from, Player* to) {
+		*to = from;
+		for (auto& mutable_minion : *to->mutable_minions()) {
+			mutable_minion.set_id(id_generator_.GenerateNextId());
+		}
+	}
+
 	void Game::Initialize(const Player& player1, const Player& player2) {
 		board_.set_game_status(Board::ONGOING);
 		board_.clear_player1();
-		*board_.mutable_player1() = player1;
+		InitializePlayer(player1, board_.mutable_player1());
 		board_.clear_player2();
-		*board_.mutable_player2() = player2;
+		InitializePlayer(player2, board_.mutable_player2());
 		if (RandomBool()) {
 			board_.mutable_player1()->set_attacks_next(true);
 			board_.mutable_player2()->set_attacks_next(false);

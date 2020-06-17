@@ -16,20 +16,19 @@ namespace battle {
 
 	class GameTest : public ::testing::Test {
 	protected:
-		Game game_;
-
 		void SetUp() override {
 			battle::utilities::internal_testing::SetGeneratorSeed(0);
 		}
+
+		Game game_;
 	};
 
-	TEST_F(GameTest, InitializesCorrectly) {
+	TEST_F(GameTest, InitializesCorrectlyAssigningId) {
 		Player player1;
 		Player player2;
 
 		google::protobuf::TextFormat::ParseFromString(R"(
 		minions {
-			id: 1
 			power: 3
 			life_total: 3
 			life_current: 3
@@ -38,7 +37,6 @@ namespace battle {
 
 		google::protobuf::TextFormat::ParseFromString(R"(
 		minions {
-			id: 2
 			power: 2
 			life_total: 3
 			life_current: 3
@@ -76,7 +74,6 @@ namespace battle {
 
 		google::protobuf::TextFormat::ParseFromString(R"(
 		minions {
-			id: 1
 			power: 3
 			life_total: 3
 			life_current: 3
@@ -85,7 +82,6 @@ namespace battle {
 
 		google::protobuf::TextFormat::ParseFromString(R"(
 		minions {
-			id: 2
 			power: 2
 			life_total: 3
 			life_current: 3

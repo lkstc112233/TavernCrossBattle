@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "protocpp/Board.pb.h"
+#include "IdGenerator.h"
 
 namespace battle {
 	class Game {
@@ -8,9 +9,8 @@ namespace battle {
 		void Initialize(const Player& player1, const Player& player2);
 		void LoopStep();
 		const Board& GetBoardState();
-	private:
-		Board board_;
 
+	private:
 		// Checks if the game status is over. 
 		bool IsGameOver();
 
@@ -19,5 +19,10 @@ namespace battle {
 
 		// Checks status, winning, minion dying, etc.
 		void StatusUpdate();
+
+		void InitializePlayer(const Player& from, Player* to);
+
+		Board board_;
+		utilities::IdGenerator id_generator_;
 	};
 }
