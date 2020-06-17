@@ -1,10 +1,13 @@
 ﻿#include <iostream>
 
-#include "protocpp/Minion.pb.h"
-#include "protocpp/Board.pb.h"
+#include "Game.h"
+#include "protocpp/Player.pb.h"
 
 int main()
 {
-    battle::Board board; 
-    std::cout << board.DebugString() << std::endl;
+    battle::Game game;
+    battle::Player player;
+    player.add_minions()->set_power(3);
+    game.Initialize(player, player);
+    std::cout << game.GetBoardState().DebugString() << std::endl;
 }
