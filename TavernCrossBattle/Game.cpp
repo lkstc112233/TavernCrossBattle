@@ -18,6 +18,18 @@ namespace battle {
 		}
 	}
 
+	void Game::PerformAttack() {
+		Player* attackingPlayer = board_.player1_attacks_next() ? board_.mutable_player1() : board_.mutable_player2();
+		Player* defendingPlayer = board_.player1_attacks_next() ? board_.mutable_player2() : board_.mutable_player1();
+		DetermineNextAttacker(attackingPlayer);
+		Minion* attacker = DetermineAttacker(attackingPlayer);
+		if (!attacker) {
+			return;
+		}
+		Minion* defender = DetermineDefender(defendingPlayer);
+		Attack(attacker, defender);
+	}
+
 	void Game::Initialize(const Player& player1, const Player& player2) {
 		board_.set_game_status(Board::ONGOING);
 		board_.clear_player1();
@@ -31,15 +43,7 @@ namespace battle {
 		if (IsGameOver()) {
 			return;
 		}
-		Player* attackingPlayer = board_.player1_attacks_next() ? board_.mutable_player1() : board_.mutable_player2();
-		Player* defendingPlayer = board_.player1_attacks_next() ? board_.mutable_player2() : board_.mutable_player1();
-		DetermineNextAttacker(attackingPlayer);
-		Minion* attacker = DetermineAttacker(attackingPlayer);
-		if (!attacker) {
-			return;
-		}
-		Minion* defender = DetermineDefender(defendingPlayer);
-		Attack(attacker, defender);
+		PerformAttack();
 	}
 
 	bool Game::IsGameOver() {

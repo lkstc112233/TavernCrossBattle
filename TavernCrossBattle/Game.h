@@ -14,6 +14,9 @@ namespace battle {
 		// Checks if the game status is over. 
 		bool IsGameOver();
 
+		// The attacking player attacks the defending player with a minion.
+		void PerformAttack();
+
 		// minion1 attacks minion2.
 		void Attack(Minion* attacker, Minion* defender);
 
