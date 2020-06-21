@@ -71,4 +71,8 @@
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="player1.textproto" />
+    <None Include="player2.textproto" />
+  </ItemGroup>
 </Project>

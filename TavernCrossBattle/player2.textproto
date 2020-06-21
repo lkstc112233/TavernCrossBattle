@@ -1,0 +1,12 @@
+minions {
+	power: 3
+	life_total: 3
+	life_current: 3
+	can_attack: false
+}
+minions {
+	power: 5
+	life_total: 12
+	life_current: 12
+	can_attack: false
+}

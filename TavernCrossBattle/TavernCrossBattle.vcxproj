@@ -193,6 +193,10 @@
     <ClInclude Include="PlayerUtilities.h" />
     <ClInclude Include="RandomUtilities.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="player1.textproto" />
+    <None Include="player2.textproto" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>
