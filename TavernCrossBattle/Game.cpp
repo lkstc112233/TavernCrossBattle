@@ -44,6 +44,8 @@ namespace battle {
 			return;
 		}
 		PerformAttack();
+		StatusUpdate();
+		SwapAttackingPlayer();
 	}
 
 	bool Game::IsGameOver() {

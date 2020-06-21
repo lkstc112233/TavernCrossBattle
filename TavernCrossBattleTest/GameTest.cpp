@@ -83,35 +83,35 @@ namespace battle {
 		google::protobuf::TextFormat::ParseFromString(R"(
 		minions {
 			power: 2
-			life_total: 3
-			life_current: 3
+			life_total: 4
+			life_current: 4
 		}
 	)", &player2);
 
 		game_.Initialize(player1, player2);
 		game_.LoopStep();
 		EXPECT_THAT(game_.GetBoardState(), EqualsProto(R"(
-	game_status: ONGOING
-	player1 {
-		minions {
-			id: 1
-			power: 3
-			life_total: 3
-			life_current: 1
-			can_attack: false
-		}
-	}
-	player2 {
-		minions {
-			id: 2
-			power: 2
-			life_total: 3
-			life_current: 0
-			can_attack: true
-		}
-	}
-	player1_attacks_next: false
-	)"));
+			game_status: ONGOING
+			player1 {
+				minions {
+					id: 1
+					power: 3
+					life_total: 3
+					life_current: 1
+					can_attack: false
+				}
+			}
+			player2 {
+				minions {
+					id: 2
+					power: 2
+					life_total: 4
+					life_current: 1
+					can_attack: true
+				}
+			}
+			player1_attacks_next: true
+		)"));
 	}
 
 }
