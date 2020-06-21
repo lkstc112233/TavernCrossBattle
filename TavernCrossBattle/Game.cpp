@@ -6,7 +6,6 @@
 #include "RandomUtilities.h"
 
 namespace battle {
-	using ::battle::utilities::RandomInt;
 	using ::battle::utilities::RandomBool;
 	using ::battle::utilities::DetermineAttacker;
 	using ::battle::utilities::DetermineNextAttacker;
