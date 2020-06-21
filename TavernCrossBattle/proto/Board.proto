@@ -15,4 +15,5 @@ message Board {
 	Player player1 = 1;
 	Player player2 = 2;
 	GameStatus game_status = 3;
+	bool player1_attacks_next = 4;
 }

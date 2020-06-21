@@ -20,6 +20,9 @@ namespace battle {
 		// Checks status, winning, minion dying, etc.
 		void StatusUpdate();
 
+		// Swaps attacking player.
+		void SwapAttackingPlayer();
+
 		void InitializePlayer(const Player& from, Player* to);
 
 		Board board_;

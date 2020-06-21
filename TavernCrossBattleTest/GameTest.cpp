@@ -63,8 +63,8 @@ namespace battle {
 			life_current: 3
 			can_attack: false
 		}
-		attacks_next: true
 	}
+	player1_attacks_next: false
 	)"));
 	}
 
@@ -109,8 +109,8 @@ namespace battle {
 			life_current: 0
 			can_attack: true
 		}
-		attacks_next: true
 	}
+	player1_attacks_next: false
 	)"));
 	}
 

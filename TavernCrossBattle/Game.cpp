@@ -25,23 +25,20 @@ namespace battle {
 		InitializePlayer(player1, board_.mutable_player1());
 		board_.clear_player2();
 		InitializePlayer(player2, board_.mutable_player2());
-		if (RandomBool()) {
-			board_.mutable_player1()->set_attacks_next(true);
-			board_.mutable_player2()->set_attacks_next(false);
-		} else {
-			board_.mutable_player1()->set_attacks_next(false);
-			board_.mutable_player2()->set_attacks_next(true);
-		}
+		board_.set_player1_attacks_next(RandomBool());
 	}
 
 	void Game::LoopStep() {
 		if (IsGameOver()) {
 			return;
 		}
-		Player* attackingPlayer = board_.player1().attacks_next() ? board_.mutable_player1() : board_.mutable_player2();
-		Player* defendingPlayer = board_.player1().attacks_next() ? board_.mutable_player2() : board_.mutable_player1();
+		Player* attackingPlayer = board_.player1_attacks_next() ? board_.mutable_player1() : board_.mutable_player2();
+		Player* defendingPlayer = board_.player1_attacks_next() ? board_.mutable_player2() : board_.mutable_player1();
 		DetermineNextAttacker(attackingPlayer);
 		Minion* attacker = DetermineAttacker(attackingPlayer);
+		if (!attacker) {
+			return;
+		}
 		Minion* defender = DetermineDefender(defendingPlayer);
 		Attack(attacker, defender);
 	}
@@ -60,6 +57,10 @@ namespace battle {
 	void Game::Attack(Minion* attacker, Minion* defender) {
 		attacker->set_life_current(attacker->life_current() - defender->power());
 		defender->set_life_current(defender->life_current() - attacker->power());
+	}
+
+	void Game::SwapAttackingPlayer() {
+		board_.set_player1_attacks_next(!board_.player1_attacks_next());
 	}
 
 	void Game::StatusUpdate() {
