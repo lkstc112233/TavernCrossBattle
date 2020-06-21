@@ -48,7 +48,7 @@ namespace battle {
 		SwapAttackingPlayer();
 	}
 
-	bool Game::IsGameOver() {
+	bool Game::IsGameOver() const {
 		switch (board_.game_status()) {
 		case Board::PLAYER1_WINS:
 		case Board::PLAYER2_WINS:

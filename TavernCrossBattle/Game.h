@@ -9,10 +9,10 @@ namespace battle {
 		void Initialize(const Player& player1, const Player& player2);
 		void LoopStep();
 		const Board& GetBoardState();
+		// Checks if the game status is over. 
+		bool IsGameOver() const;
 
 	private:
-		// Checks if the game status is over. 
-		bool IsGameOver();
 
 		// The attacking player attacks the defending player with a minion.
 		void PerformAttack();
