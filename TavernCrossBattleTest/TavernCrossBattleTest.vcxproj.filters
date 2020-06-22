@@ -193,6 +193,14 @@
     </ClCompile>
     <ClCompile Include="MinionUtilitiesTest.cpp" />
     <ClCompile Include="IdGeneratorTest.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="protocol-buffer-matchers.h" />
