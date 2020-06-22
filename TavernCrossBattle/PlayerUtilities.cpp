@@ -48,8 +48,16 @@ namespace battle {
 		}
 
 		Minion* DetermineDefender(Player* player) {
-			int minions = player->minions_size();
-			return player->mutable_minions(RandomInt(0, minions - 1));
+			int minions_count = CountMinions(*player);
+			if (minions_count == 0) {
+				return nullptr;
+			}
+			auto minions = player->mutable_minions();
+			int minions_index = RandomInt(0, minions_count - 1);
+			return &*std::find_if(std::begin(*minions), std::end(*minions), 
+				[&minions_index](const Minion& minion) -> bool {
+					return IsAlive(minion) && !(minions_index--);
+				});
 		}
 
 		int CountMinions(const Player& player) {
