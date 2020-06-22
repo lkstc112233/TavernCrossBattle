@@ -93,7 +93,12 @@
     <ClInclude Include="util\mutex.h" />
     <ClInclude Include="util\pcre.h" />
     <ClInclude Include="util\strutil.h" />
-    <ClInclude Include="util\test.h" />
+    <ClInclude Include="util\test.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="util\utf.h" />
     <ClInclude Include="util\util.h" />
   </ItemGroup>
@@ -337,7 +342,9 @@
     <ClCompile Include="util\pcre.cc" />
     <ClCompile Include="util\rune.cc" />
     <ClCompile Include="util\strutil.cc" />
-    <ClCompile Include="util\test.cc" />
+    <ClCompile Include="util\test.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TavernCrossBattle\TavernCrossBattle.vcxproj">
