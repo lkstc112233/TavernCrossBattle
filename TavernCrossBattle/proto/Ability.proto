@@ -7,9 +7,17 @@ package battle;
 message Ability {
 	// The trigger type.
 	enum Trigger {
+		// The ability either takes no effect or
+		// is some special ability that checked 
+		// by other means.
 		NEVER_TRIGGERS = 0;
 		// Lasting effect
 		ALWAYS_TRIGGERS = 1;
+	}
+
+	enum KeywordAbilities {
+		NOT_A_KEYWORD_ABILITY = 0;
+		TAUNT = 1;
 	}
 
 	// The trigger of the ability.
@@ -17,4 +25,7 @@ message Ability {
 
 	// The thing that happens when triggered.
 	Effect effect = 2;
+
+	// The keyword of the ability.
+	KeywordAbilities keyword = 3;
 }
