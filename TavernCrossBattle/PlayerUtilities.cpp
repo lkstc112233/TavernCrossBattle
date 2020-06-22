@@ -60,6 +60,25 @@ namespace battle {
 				});
 		}
 
+		int CountTauntMinions(const Player& player) {
+			auto minions = player.minions();
+			return std::count_if(
+				std::begin(minions),
+				std::end(minions),
+				[](const Minion& minion) {
+					if (!IsAlive(minion)) {
+						return false;
+					}
+					auto abilities = minion.abilities();
+					return std::find_if(
+						std::begin(abilities),
+						std::end(abilities),
+						[](const Ability& ability) {
+							return ability.keyword() == Ability::TAUNT;
+						}) != std::end(abilities);
+				});
+		}
+
 		int CountMinions(const Player& player) {
 			auto minions = player.minions();
 			return std::count_if(std::begin(minions), std::end(minions), &IsAlive);

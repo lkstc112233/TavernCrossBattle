@@ -312,6 +312,90 @@ namespace battle {
 			)"));
 	}
 
+	TEST(CountTauntMinions, CountsTauntMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::CountTauntMinions(player), 1);
+	}
+
+	TEST(CountTauntMinions, CountsAllTauntMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::CountTauntMinions(player), 2);
+	}
+
+	TEST(CountTauntMinions, CountsTauntMinionsNotCountingDeadMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: -3
+				can_attack: false
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+		)", &player);
+
+		ASSERT_EQ(utilities::CountTauntMinions(player), 1);
+	}
+
 	TEST(CountMinions, ReturnsCountOfAliveMinions) {
 		Player player;
 
