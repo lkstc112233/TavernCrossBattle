@@ -262,7 +262,7 @@ namespace battle {
 			}
 		)", &player);
 
-		Minion* minion = utilities::DetermineAttacker(&player);
+		Minion* minion = utilities::DetermineDefender(&player);
 
 		ASSERT_NE(minion, nullptr);
 		EXPECT_THAT(*minion, AnyOf(EqualsProto(R"(
