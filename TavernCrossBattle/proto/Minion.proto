@@ -1,8 +1,10 @@
 syntax = "proto3";
 
+import "Ability.proto";
+
 package battle;
 
-// Next Id: 8
+// Next Id: 9
 message Minion {
 	enum Type {
 		GENERAL = 0;
@@ -32,6 +34,9 @@ message Minion {
 
 	// The type of the minion.
 	Type type = 7;
+
+	// Abilities the minion has
+	repeated Ability abilities = 8;
 
 	reserved 4;
 }
