@@ -57,7 +57,16 @@ namespace battle {
 		}
 
 		Minion* DetermineDefender(Player* player) {
-			int minions_count = CountMinions(*player);
+			int minions_count = CountTauntMinions(*player);
+			if (minions_count) {
+				auto minions = player->mutable_minions();
+				int minions_index = RandomInt(0, minions_count - 1);
+				return &*find_if_nth(std::begin(*minions), std::end(*minions),
+					minions_index, [](const Minion& minion) {
+						return IsAlive(minion) && HasKeywordAbility(minion, Ability::TAUNT);
+					});
+			}
+			minions_count = CountMinions(*player);
 			if (minions_count == 0) {
 				return nullptr;
 			}

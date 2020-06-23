@@ -312,6 +312,159 @@ namespace battle {
 			)"));
 	}
 
+	TEST(DetermineDefender, ReturnsTauntMinionsBeforeOthers) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: 3
+				can_attack: false
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 4
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 5
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 6
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+		)", &player);
+
+		Minion* minion = utilities::DetermineDefender(&player);
+
+		ASSERT_NE(minion, nullptr);
+		EXPECT_THAT(*minion, AnyOf(EqualsProto(R"(
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			)"), EqualsProto(R"(
+				id: 6
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			)")));
+	}
+
+	TEST(DetermineDefender, ExcludesDeadTauntMinions) {
+		Player player;
+
+		google::protobuf::TextFormat::ParseFromString(R"(
+			minions {
+				id: 1
+				power: 3
+				life_total: 3
+				life_current: -3
+				can_attack: false
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			}
+			minions {
+				id: 3
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 4
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 5
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+			minions {
+				id: 6
+				power: 5
+				life_total: 12
+				life_current: -3
+				can_attack: true
+				abilities {
+					keyword: TAUNT
+				}
+			}
+		)", &player);
+
+		Minion* minion = utilities::DetermineDefender(&player);
+
+		ASSERT_NE(minion, nullptr);
+		EXPECT_THAT(*minion, EqualsProto(R"(
+				id: 2
+				power: 5
+				life_total: 12
+				life_current: 3
+				can_attack: true
+			)"));
+	}
+
 	TEST(CountTauntMinions, CountsTauntMinions) {
 		Player player;
 
