@@ -201,6 +201,15 @@
     <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
     <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
     <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cpp" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="CollectionUtilitiesTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="protocol-buffer-matchers.h" />

@@ -127,6 +127,7 @@
     </ClCompile>
     <ClCompile Include="..\TavernCrossBattle\**\*.cpp" Exclude="..\TavernCrossBattle\TavernCrossBattle.cpp" />
     <ClCompile Include="..\TavernCrossBattle\**\*.cc" />
+    <ClCompile Include="CollectionUtilitiesTest.cpp" />
     <ClCompile Include="GameTest.cpp" />
     <ClCompile Include="IdGeneratorTest.cpp" />
     <ClCompile Include="MinionUtilitiesTest.cpp" />

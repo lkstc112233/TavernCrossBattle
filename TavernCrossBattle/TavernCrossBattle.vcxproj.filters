@@ -70,6 +70,9 @@
     <ClInclude Include="IdGenerator.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CollectionUtilities.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="player1.textproto" />
