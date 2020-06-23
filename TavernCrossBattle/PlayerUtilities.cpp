@@ -1,6 +1,7 @@
 #include "PlayerUtilities.h"
 
 #include <algorithm>
+#include <functional>
 
 #include "CollectionUtilities.h"
 #include "MinionUtilities.h"
@@ -62,9 +63,10 @@ namespace battle {
 				auto minions = player->mutable_minions();
 				int minions_index = RandomInt(0, minions_count - 1);
 				return &*find_if_nth(std::begin(*minions), std::end(*minions),
-					minions_index, [](const Minion& minion) {
-						return IsAlive(minion) && HasKeywordAbility(minion, Ability::TAUNT);
-					});
+					minions_index, 
+					std::bind(std::logical_and<void>(), 
+						std::bind(&IsAlive, std::placeholders::_1), 
+						std::bind(&HasKeywordAbility, std::placeholders::_1, Ability::TAUNT)));
 			}
 			minions_count = CountMinions(*player);
 			if (minions_count == 0) {
