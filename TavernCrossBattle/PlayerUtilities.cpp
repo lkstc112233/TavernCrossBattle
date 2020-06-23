@@ -17,6 +17,14 @@ namespace battle {
 					lastAttacker->set_can_attack(false);
 				}
 			}
+
+			template<typename Iterator, typename Pred, typename Counter>
+			Iterator find_if_nth(Iterator first, Iterator last, Counter n, Pred closure) {
+				typedef typename std::iterator_traits<Iterator>::reference Tref;
+				return std::find_if(first, last, [&](const Tref x) {
+					return closure(x) && !(n--);
+					});
+			}
 		}
 
 		Minion* DetermineAttacker(Player* player) {
@@ -54,10 +62,8 @@ namespace battle {
 			}
 			auto minions = player->mutable_minions();
 			int minions_index = RandomInt(0, minions_count - 1);
-			return &*std::find_if(std::begin(*minions), std::end(*minions), 
-				[&minions_index](const Minion& minion) -> bool {
-					return IsAlive(minion) && !(minions_index--);
-				});
+			return &*find_if_nth(std::begin(*minions), std::end(*minions),
+				minions_index, &IsAlive);
 		}
 
 		int CountTauntMinions(const Player& player) {
