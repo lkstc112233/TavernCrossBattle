@@ -46,6 +46,7 @@ namespace battle {
 
 			EXPECT_TRUE(IsAlive(minion));
 		}
+
 		TEST(IsAlive, ReturnsFalseForDeadMinion) {
 			Minion minion;
 
@@ -57,6 +58,42 @@ namespace battle {
 				)", &minion);
 
 			EXPECT_FALSE(IsAlive(minion));
+		}
+
+		TEST(HasKeywordAbility, ChecksKeywordAbility) {
+			Minion minion;
+
+			google::protobuf::TextFormat::ParseFromString(R"(
+					id: 1
+					power: 0
+					life_total: 3
+					life_current: 2
+					abilities {
+						keyword: TAUNT
+					}
+				)", &minion);
+
+			EXPECT_TRUE(HasKeywordAbility(minion, Ability::TAUNT));
+			minion.clear_abilities();
+			EXPECT_FALSE(HasKeywordAbility(minion, Ability::TAUNT));
+		}
+
+		TEST(HasKeywordAbility, ChecksKeywordAbilityEvenForDeadMinoins) {
+			Minion minion;
+
+			google::protobuf::TextFormat::ParseFromString(R"(
+					id: 1
+					power: 0
+					life_total: 3
+					life_current: 0
+					abilities {
+						keyword: TAUNT
+					}
+				)", &minion);
+
+			EXPECT_TRUE(HasKeywordAbility(minion, Ability::TAUNT));
+			minion.clear_abilities();
+			EXPECT_FALSE(HasKeywordAbility(minion, Ability::TAUNT));
 		}
 	}
 }
